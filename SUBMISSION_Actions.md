@@ -1,4 +1,4 @@
-# Flask Practice App — CI/CD with GitHub Actions
+# CI-CD Practice with GITHUB Actions
 
 This repository contains a Python Flask application with an automated
 CI/CD pipeline built using **GitHub Actions**. Every push and release is
@@ -125,11 +125,36 @@ pytest --disable-warnings -q
 |------------------------|--------------------------------------------------------------------------|
 | CI (test only)        | Open a pull request or push to any tracked branch                       |
 
-![alt text](CI_stage
-.png)
+![alt text](CI_stage.png)
+
 | Staging deployment    | `git push origin staging` (merge or push directly to `staging`)         | 
 
+![alt text](staging_workflow.png)
 
 | Production deployment | On GitHub: **Releases → Draft a new release → Publish release** (tag from `main`) |
 
+![alt text](Production.png)
 ---
+
+# Project Structure
+CI-CD_Project/
+│
+├── app.py
+├── requirements.txt
+├── tests/
+|
+├── README.md
+│   └── init.py
+│   └── test_app.py
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml
+│
+├── Snapshot Images
+├── README.md
+├── SUBMISSION_Actions.md
+└── ..
+
+# Author
+
+``` Anil Kumar Rajana ```
