@@ -121,10 +121,15 @@ Two supported approaches (the Jenkinsfile includes a polling fallback by default
 ## Repository Structure
 
 ```
-flask_Practice/
+CI_CD-Project/
 ├── app.py                # Flask application entrypoint
 ├── requirements.txt       # Python dependencies
-├── tests/                 # pytest test suite
+├──tests/
+│   └── init.py
+│   └── test_app.py
 ├── Jenkinsfile             # CI/CD pipeline definition
-└── README.md               # This file
+└──jenkins\
+│   └── README.md
+│   └── Snapshot Images
+│   └── jenkinsfile
 ```
