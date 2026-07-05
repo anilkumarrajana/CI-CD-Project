@@ -124,34 +124,12 @@ pytest --disable-warnings -q
 | To trigger...        | Do this                                                                 |
 |------------------------|--------------------------------------------------------------------------|
 | CI (test only)        | Open a pull request or push to any tracked branch                       |
-| Staging deployment    | `git push origin staging` (merge or push directly to `staging`)         |
+
+![alt text](CI_stage
+.png)
+| Staging deployment    | `git push origin staging` (merge or push directly to `staging`)         | 
+
+
 | Production deployment | On GitHub: **Releases → Draft a new release → Publish release** (tag from `main`) |
 
 ---
-
-## 7. Viewing Workflow Runs
-
-Go to the **Actions** tab of the repository to see every run, its logs,
-and downloadable artifacts (test reports, build zip). Successful runs
-show a green check next to each job; failed jobs are expandable to see
-exactly which step failed.
-
----
-
-## 8. Customizing for Your Hosting Provider
-
-The deployment steps in `deploy-staging` and `deploy-production` are
-intentionally generic (SSH/SCP placeholders) so this template works
-anywhere. Common swaps:
-
-- **Heroku:** use `akhileshns/heroku-deploy` action with `HEROKU_API_KEY`.
-- **AWS Elastic Beanstalk:** use `einaregilsson/beanstalk-deploy`.
-- **Docker/Kubernetes:** build and push an image with
-  `docker/build-push-action`, then update a manifest and let ArgoCD/Flux
-  sync it.
-- **Render/Railway/Fly.io:** most provide a CLI or GitHub Action you can
-  drop into the same job structure.
-
-Replace the placeholder `run:` commands with the provider-specific
-action or CLI calls, keeping the same `needs:` and `if:` conditions so
-the pipeline gating (tests → build → deploy) stays intact.
