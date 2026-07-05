@@ -5,7 +5,7 @@ pipeline {
         VENV_DIR = 'venv'
         STAGING_DIR = "${WORKSPACE}/staging"
         STAGING_PORT = '8000'
-        NOTIFY_EMAIL = 'your-email@example.com' // TODO: replace with your email
+        NOTIFY_EMAIL = 'anilkumarrajana02@gmail.com' // TODO: replace with your email
     }
 
     options {
@@ -62,7 +62,7 @@ pipeline {
 
         stage('Deploy') {
             when {
-                branch 'main'
+                branch 'master'
             }
             steps {
                 echo 'Deploying application to staging environment...'
