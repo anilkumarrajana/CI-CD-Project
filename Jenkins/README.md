@@ -57,6 +57,8 @@ Before running the pipeline, make sure you have:
    ![alt text](Jenkins_install.png)
 2. Browse to `http://<server-ip>:8080`, unlock Jenkins using
    `/var/lib/jenkins/secrets/initialAdminPassword`, and install the suggested plugins.
+
+   ![alt text](Jenkins_Browser.png)
 3. Install additional plugins via **Manage Jenkins → Plugins → Available**:
    - Pipeline
    - Git
@@ -109,11 +111,14 @@ Two supported approaches (the Jenkinsfile includes a polling fallback by default
 2. Under **Pipeline**, select "Pipeline script from SCM":
    - SCM: Git
    - Repository URL: your fork's URL
-   - Branch: `*/main`
+   - Branch: `*/master`
    - Script Path: `Jenkinsfile`
 3. Save, then click **Build Now** to run it manually the first time.
-4. Push a commit to `main` on your fork to confirm the trigger fires automatically afterward.
+4. Push a commit to `master` on your fork to confirm the trigger fires automatically afterward.
 
+![alt text](Jenkins_pipeline.png)
+
+![alt text](Mail_Notification.png)
 ## Repository Structure
 
 ```
