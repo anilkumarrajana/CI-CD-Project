@@ -91,9 +91,8 @@ Two supported approaches (the Jenkinsfile includes a polling fallback by default
 4. Trigger on: "Just the push event."
 5. In the Jenkins job configuration, check **"GitHub hook trigger for GITScm polling."**
 
-**Option B — SCM Polling (works even if Jenkins isn't publicly reachable)**
-- Already configured in the `Jenkinsfile` via `pollSCM('H/5 * * * *')`, checking for changes every 5 minutes.
-- Alternatively, enable "Poll SCM" in the job configuration UI with the same schedule.
+![alt text](Webhook.png)
+
 
 ## Configuring Email Notifications
 
@@ -129,25 +128,3 @@ flask_Practice/
 ├── Jenkinsfile             # CI/CD pipeline definition
 └── README.md               # This file
 ```
-
-> Note: If your fork uses a different entrypoint filename or a subfolder for the app/tests, update
-> the `Deploy` stage command (`python3 app.py ...`) in the `Jenkinsfile` accordingly.
-
-## Troubleshooting
-
-- **`pytest: command not found`** → Ensure the virtualenv is activated in the same shell step; each
-  `sh` block in Jenkins runs in a fresh shell, so activation must happen in the same block as usage.
-- **Webhook not triggering builds** → Check GitHub's webhook delivery logs (green check/red X) under
-  Settings → Webhooks → Recent Deliveries, and confirm Jenkins is reachable from GitHub's servers.
-- **No email received** → Verify SMTP credentials under Manage Jenkins → System, and check the
-  Jenkins system log for mail errors.
-- **Deploy stage port already in use** → The pipeline kills any previous staging PID stored in
-  `staging.pid` before starting a new one; delete `staging.pid` manually if it becomes stale.
-
-## Submission Checklist
-
-- [ ] Forked repository URL with `Jenkinsfile` and this `README.md` committed to `main`.
-- [ ] Screenshot of Jenkins Stage View showing Build, Test, and Deploy stages passing.
-- [ ] Screenshot of console output for a build (showing pip install, pytest results, deploy step).
-- [ ] Screenshot of a received success/failure notification email.
-- [ ] Screenshot of the GitHub webhook delivery log (if using webhook trigger).
