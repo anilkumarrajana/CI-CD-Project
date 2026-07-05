@@ -137,6 +137,7 @@ pytest --disable-warnings -q
 ---
 
 # Project Structure
+```text
 CI-CD_Project/
 │
 ├── app.py
@@ -154,6 +155,7 @@ CI-CD_Project/
 ├── README.md
 ├── SUBMISSION_Actions.md
 └── ..
+```
 
 # Author
 
